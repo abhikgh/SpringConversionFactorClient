@@ -51,7 +51,6 @@ public class NavigationController {
                                 .retrieve()
                                 .bodyToMono(String.class)
                                 .map(s->s);
-
            return ResponseEntity.status(HttpStatus.OK)
                                 .body(response);
 
