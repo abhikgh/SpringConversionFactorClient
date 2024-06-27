@@ -1,5 +1,7 @@
 package com.example.SpringConversionFactorFeignClient.service;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
 import org.springframework.cloud.client.DefaultServiceInstance;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
@@ -8,17 +10,11 @@ import reactor.core.publisher.Flux;
 import java.util.Arrays;
 import java.util.List;
 
-class DemoInstanceSupplier implements ServiceInstanceListSupplier {
+@AllArgsConstructor
+@Getter
+public class ServiceInstanceSupplier implements ServiceInstanceListSupplier {
+
     private final String serviceId;
-
-    public DemoInstanceSupplier(String serviceId) {
-        this.serviceId = serviceId;
-    }
-
-    @Override
-    public String getServiceId() {
-        return serviceId;
-    }
 
     @Override
     public Flux<List<ServiceInstance>> get() {
