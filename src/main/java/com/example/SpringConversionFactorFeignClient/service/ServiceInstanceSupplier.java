@@ -20,6 +20,6 @@ public class ServiceInstanceSupplier implements ServiceInstanceListSupplier {
     public Flux<List<ServiceInstance>> get() {
         return Flux.just(Arrays
                 .asList(new DefaultServiceInstance(serviceId + "1", serviceId, "localhost", 8061, false),
-                      new DefaultServiceInstance(serviceId + "1", serviceId, "localhost", 8062, false)));
+                      new DefaultServiceInstance(serviceId + "2", serviceId, "localhost", 8062, false)));
     }
 }

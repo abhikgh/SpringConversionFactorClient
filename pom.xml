@@ -20,6 +20,12 @@
 	</properties>
 	<dependencies>
 
+		<!-- Spring-Cloud-Load-Balancer -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
+			<version>4.0.1</version>
+		</dependency>
 
 
 		<!-- Lombok -->
@@ -27,12 +33,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
-		</dependency>
-		<!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-starter-loadbalancer -->
-		<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-loadbalancer</artifactId>
-			<version>4.0.1</version>
 		</dependency>
 
 		<dependency>
