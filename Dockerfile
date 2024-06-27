@@ -1,21 +1,11 @@
-# For Java 8, try this
-  FROM openjdk:8-jdk-alpine
+#Application type - downloads the image 
+FROM openjdk:8-jdk-alpine
 
-# For Java 11, try this
-# FROM adoptopenjdk/openjdk11:alpine-jre
+#Add jar to docker container
+ADD target/SpringConversionFactorFeignClient-0.0.2-SNAPSHOT.jar springconversionfactorfeignclient.jar
 
-# Refer to Maven build -> finalName
-ARG JAR_FILE=target/spring-boot-web.jar
+#Expose the container on a port
+EXPOSE 8071
 
-# cd /opt/app
-WORKDIR /opt/app
-
-# cp target/spring-boot-web.jar /opt/app/app.jar
-COPY ${JAR_FILE} app.jar
-
-# java -jar /opt/app/app.jar
-ENTRYPOINT ["java","-jar","app.jar"]
-
-## sudo docker run -p 8080:8080 -t docker-spring-boot:1.0
-## sudo docker run -p 80:8080 -t docker-spring-boot:1.0
-## sudo docker run -p 443:8443 -t docker-spring-boot:1.0
+#Command whith which docker container will run 
+ENTRYPOINT ["java","-jar","springconversionfactorfeignclient.jar"]
