@@ -29,28 +29,5 @@ public class NavigationController {
 
     }
 
-    // http://localhost:8071/convertCurrency/AUD
-	/*{
-		  "countryCode" : "IND",
-		  "amount" : 10000
-	}*/
-   /* @PostMapping(value="/convertCurrency/{countryCodeTo}",produces="application/json")
-    public ResponseEntity<Currency> convertCurrency(@PathVariable("countryCodeTo") String countryCodeTo,@RequestBody Currency currencyFrom){
-        ResponseEntity<Double> conversionFactorREFrom = feignClientService.getConversionFactor(currencyFrom.getCountryCode());
-        Double conversionFactorFrom = conversionFactorREFrom.getBody().doubleValue();
-        double amountFrom = currencyFrom.getAmount() / conversionFactorFrom;
-        ResponseEntity<Double> conversionFactorRETo = feignClientService.getConversionFactor(countryCodeTo);
-        Double conversionFactorTo = conversionFactorRETo.getBody().doubleValue();
-        double amountTo = amountFrom * conversionFactorTo;
-
-        System.out.println("amountTo = " + amountTo);
-        log.debug("amountTo::" + amountTo);
-        DecimalFormat df = new DecimalFormat("0.00");
-        df.setRoundingMode(RoundingMode.HALF_UP);
-        amountTo = Double.parseDouble(df.format(amountTo));
-        Currency currency2 = new Currency(countryCodeTo, amountTo);
-        return new ResponseEntity<>(currency2, HttpStatus.OK);
-    }*/
-
 
 }
