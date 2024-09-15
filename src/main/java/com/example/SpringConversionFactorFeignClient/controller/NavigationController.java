@@ -1,5 +1,6 @@
 package com.example.SpringConversionFactorFeignClient.controller;
 
+import com.example.SpringConversionFactorFeignClient.model.CurrencyConversion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -17,15 +18,16 @@ public class NavigationController {
 
     //http://localhost:8071/getConversionFactorClient/AUD
     @GetMapping(value = "/getConversionFactorClient/{countryCode}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public Mono<String> convertCurrency(@PathVariable("countryCode") String countryCode) {
+    public Mono<CurrencyConversion> convertCurrency(@PathVariable("countryCode") String countryCode) {
 
-        return webClientBuilder.build()
+        return webClientBuilder
+                .build()
                 .get()
                 .uri("http://conversion-factor/eureka/v1/getConversionFactor/" + countryCode)
                 .header(HttpHeaders.CONTENT_TYPE, MediaType.APPLICATION_JSON_VALUE)
                 .accept(MediaType.APPLICATION_JSON)
                 .retrieve()
-                .bodyToMono(String.class);
+                .bodyToMono(CurrencyConversion.class);
 
     }
 
