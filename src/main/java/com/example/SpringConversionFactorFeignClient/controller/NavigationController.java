@@ -16,7 +16,7 @@ public class NavigationController {
     @Autowired
     private WebClient.Builder webClientBuilder;
 
-    //http://localhost:8071/getConversionFactorClient/AUD
+    //http://localhost:8081/getConversionFactorClient/GBP
     @GetMapping(value = "/getConversionFactorClient/{countryCode}", produces = MediaType.APPLICATION_JSON_VALUE)
     public Mono<CurrencyConversion> convertCurrency(@PathVariable("countryCode") String countryCode) {
 
